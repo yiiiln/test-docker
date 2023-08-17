@@ -2,9 +2,9 @@
     "swagger": "2.0",
     "info": {
         "description": "test-connect.",
-        "title": "test-connect-api",
+        "title": "Gin swagger",
         "contact": {},
-        "version": "1.0.0"
+        "version": "1.0"
     },
     "host": "localhost:8080",
     "paths": {
@@ -351,5 +351,8 @@
                 }
             }
         }
+    },
+    "x-google-backend": {
+        "address": "https://test-docker-b4pv32cufa-de.a.run.app"
     }
 }
