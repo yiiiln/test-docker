@@ -1,0 +1,42 @@
+# openapi2-run.yaml
+swagger: '2.0'
+info:
+  title: test-connect-api test-connect
+  description: Test Connect
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /Test:
+    get:
+      summary: Test Connect Cloud Run
+      operationId: test
+      consumes:
+        - application/json
+      x-google-backend:
+        address:  https://test-docker-b4pv32cufa-de.a.run.app/Test
+      responses:
+        '200':
+          description: Connect Cloud Run Successful
+          schema:
+            type: string
+  /CRUD:
+    get:
+      summary: GetAllUser
+      operationId: getAllUser
+      consumes:
+        - application/json
+      x-google-backend:
+        address: https://test-docker-b4pv32cufa-de.a.run.app/CRUD
+      responses:
+        "200":
+          description: Get All Users Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+

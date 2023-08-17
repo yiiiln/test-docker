@@ -13,10 +13,9 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// @title Gin Swagger Demo
-// @version 1.0
-// @description Gin Swagger API.
-// @contact.name JLHou
+// @title test-connect-api
+// @description test-connect.
+// @version 1.0.0
 // @host localhost:8080
 // schemes http
 func main() {
