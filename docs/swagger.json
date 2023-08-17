@@ -21,6 +21,7 @@
                     "CRUD"
                 ],
                 "summary": "GetAllUser",
+                "operationId": "GetAllUser",
                 "responses": {
                     "200": {
                         "description": "Get All Users Successful",
@@ -48,6 +49,7 @@
                     "CRUD"
                 ],
                 "summary": "Register",
+                "operationId": "Register",
                 "parameters": [
                     {
                         "description": "Register account",
@@ -94,6 +96,7 @@
                     "CRUD"
                 ],
                 "summary": "Login",
+                "operationId": "Login",
                 "parameters": [
                     {
                         "description": "Login account",
@@ -140,6 +143,7 @@
                     "CRUD"
                 ],
                 "summary": "Update Account By ID",
+                "operationId": "Update-Account-By-ID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -187,6 +191,7 @@
                     "CRUD"
                 ],
                 "summary": "Update Password By ID",
+                "operationId": "Update-Password-By-ID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -234,6 +239,7 @@
                     "CRUD"
                 ],
                 "summary": "GetUser",
+                "operationId": "GetUser",
                 "parameters": [
                     {
                         "type": "integer",
@@ -270,6 +276,7 @@
                     "CRUD"
                 ],
                 "summary": "DeleteUserByID",
+                "operationId": "DeleteUserByID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -308,6 +315,7 @@
                     "Test Connect"
                 ],
                 "summary": "Test Connect Cloud Run",
+                "operationId": "Test-Connect-Cloud-Run",
                 "responses": {
                     "200": {
                         "description": "Connect Cloud Run Successful",
