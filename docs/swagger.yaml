@@ -1,0 +1,442 @@
+definitions:
+  http.UserRequest:
+    properties:
+      account:
+        description: 帳號
+        type: string
+      password:
+        description: 密碼
+        type: string
+    type: object
+  http.UserRequestUpdateAccount:
+    properties:
+      new_account:
+        description: 更新帳號
+        type: string
+    type: object
+  http.UserRequestUpdatePassword:
+    properties:
+      new_password:
+        description: 更新密碼
+        type: string
+    type: object
+  old.Customer:
+    properties:
+      cust_account:
+        description: 帳號
+        type: string
+      cust_password:
+        description: 密碼
+        type: string
+    type: object
+  old.UpdateAccount:
+    properties:
+      NewAccount:
+        description: 欲更新的帳號
+        type: string
+    type: object
+  old.UpdatePassword:
+    properties:
+      NewPassword:
+        description: 欲更新的密碼
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact:
+    name: JLHou
+  description: Gin Swagger API.
+  title: Gin Swagger Demo
+  version: "1.0"
+paths:
+  /CRUD:
+    get:
+      consumes:
+      - application/json
+      description: 列出所有
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get All Users Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+      summary: GetAllUser
+      tags:
+      - CRUD
+    post:
+      consumes:
+      - application/json
+      description: 註冊
+      parameters:
+      - description: Register account
+        in: body
+        name: register_body
+        required: true
+        schema:
+          $ref: '#/definitions/http.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Register Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Register
+      tags:
+      - CRUD
+  /CRUD/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除使用者
+      parameters:
+      - description: Delete Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Delete User Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+      summary: DeleteUserByID
+      tags:
+      - CRUD
+    get:
+      consumes:
+      - application/json
+      description: 列出欲查詢的使用者
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get User Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+      summary: GetUser
+      tags:
+      - CRUD
+  /CRUD/login:
+    post:
+      consumes:
+      - application/json
+      description: 登入
+      parameters:
+      - description: Login account
+        in: body
+        name: login_body
+        required: true
+        schema:
+          $ref: '#/definitions/http.UserRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Register Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Login
+      tags:
+      - CRUD
+  /CRUD/uA/{ID}:
+    put:
+      consumes:
+      - application/json
+      description: 更新使用者 Account
+      parameters:
+      - description: Account ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Account Struct
+        in: body
+        name: update_account
+        required: true
+        schema:
+          $ref: '#/definitions/http.UserRequestUpdateAccount'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Update User Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Update Account By ID
+      tags:
+      - CRUD
+  /CRUD/uP/{ID}:
+    put:
+      consumes:
+      - application/json
+      description: 更新使用者 Password
+      parameters:
+      - description: Password ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Password Struct
+        in: body
+        name: update_password
+        required: true
+        schema:
+          $ref: '#/definitions/http.UserRequestUpdatePassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Update User Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Update Password By ID
+      tags:
+      - CRUD
+  /Test:
+    get:
+      consumes:
+      - application/json
+      description: 測試在 GCP Cloud Run 是否連得上不帶 pSQL 的映像檔
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Connect Cloud Run Successful
+          schema:
+            type: string
+      summary: Test Connect Cloud Run
+      tags:
+      - Test Connect
+  /c:
+    post:
+      consumes:
+      - application/json
+      description: 註冊
+      parameters:
+      - description: Register account
+        in: body
+        name: register_body
+        required: true
+        schema:
+          $ref: '#/definitions/old.Customer'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Register Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Register
+      tags:
+      - OLD
+  /d:
+    delete:
+      consumes:
+      - application/json
+      description: 刪除使用者
+      parameters:
+      - description: Delete user
+        in: body
+        name: delete_body
+        required: true
+        schema:
+          $ref: '#/definitions/old.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Delete User Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: DeleteUserByAccount
+      tags:
+      - OLD
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: 登入
+      parameters:
+      - description: Login account
+        in: body
+        name: login_body
+        required: true
+        schema:
+          $ref: '#/definitions/old.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Register Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Login
+      tags:
+      - OLD
+  /r:
+    get:
+      consumes:
+      - application/json
+      description: 列出所有
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Users Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: GetUsers
+      tags:
+      - OLD
+  /test_connect:
+    get:
+      consumes:
+      - application/json
+      description: 測試在 GCP Cloud Run 是否連得上不帶 pSQL 的映像檔
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Connect Cloud Run Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Connect Test
+      tags:
+      - OLD
+  /ua/{ID}:
+    put:
+      consumes:
+      - application/json
+      description: 更新Account
+      parameters:
+      - description: Account ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      - description: Account Struct
+        in: body
+        name: update_account
+        required: true
+        schema:
+          $ref: '#/definitions/old.UpdateAccount'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Update User Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Update Account By ID
+      tags:
+      - OLD
+  /up/{ID}:
+    put:
+      consumes:
+      - application/json
+      description: 更新Password
+      parameters:
+      - description: Password ID
+        in: path
+        name: ID
+        required: true
+        type: integer
+      - description: Password Struct
+        in: body
+        name: update_password
+        required: true
+        schema:
+          $ref: '#/definitions/old.UpdatePassword'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Update User Successful
+          schema:
+            type: string
+        "404":
+          description: ok
+          schema:
+            type: string
+      summary: Update Password By ID
+      tags:
+      - OLD
+swagger: "2.0"
