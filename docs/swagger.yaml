@@ -154,7 +154,7 @@ paths:
       summary: Login
       tags:
       - CRUD
-  /CRUD/uA/{ID}:
+  /CRUD/uA/{id}:
     put:
       consumes:
       - application/json
@@ -185,7 +185,7 @@ paths:
       summary: Update Account By ID
       tags:
       - CRUD
-  /CRUD/uP/{ID}:
+  /CRUD/uP/{id}:
     put:
       consumes:
       - application/json

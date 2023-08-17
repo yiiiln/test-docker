@@ -135,7 +135,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/CRUD/uA/{ID}": {
+        "/CRUD/uA/{id}": {
             "put": {
                 "description": "更新使用者 Account",
                 "consumes": [
@@ -182,7 +182,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/CRUD/uP/{ID}": {
+        "/CRUD/uP/{id}": {
             "put": {
                 "description": "更新使用者 Password",
                 "consumes": [

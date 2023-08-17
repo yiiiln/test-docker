@@ -157,7 +157,7 @@ func LoadResponseFromUser(user model.User) UserResponse {
 //	@Param			update_account	body	UserRequestUpdateAccount		true	"Account Struct"
 //	@Success		200	{string}	string	"Update User Successful"
 //	@Failure		404	{string}	string	"ok"
-//	@Router			/CRUD/uA/{ID} [put]
+//	@Router			/CRUD/uA/{id} [put]
 func (h *Handler) UpdateAccountByID(ctx *gin.Context) {
 	id := ctx.Param("id")
 	body := UserRequestUpdateAccount{}
@@ -210,7 +210,7 @@ func LoadUpdateAccountResponseFromUser(user model.User) UserUpdateAccountRespons
 //	@Param			update_password	body	UserRequestUpdatePassword		true	"Password Struct"
 //	@Success		200	{string}	string	"Update User Successful"
 //	@Failure		404	{string}	string	"ok"
-//	@Router			/CRUD/uP/{ID} [put]
+//	@Router			/CRUD/uP/{id} [put]
 func (h *Handler) UpdatePasswordByID(ctx *gin.Context) {
 	id := ctx.Param("id")
 	body := UserRequestUpdatePassword{}
