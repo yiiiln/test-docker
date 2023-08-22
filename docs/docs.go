@@ -29,6 +29,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "GetAllUser",
+                "operationId": "GetAllUser",
                 "responses": {
                     "200": {
                         "description": "Get All Users Successful",
@@ -56,6 +57,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "Register",
+                "operationId": "Register",
                 "parameters": [
                     {
                         "description": "Register account",
@@ -102,6 +104,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "Login",
+                "operationId": "Login",
                 "parameters": [
                     {
                         "description": "Login account",
@@ -148,6 +151,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "Update Account By ID",
+                "operationId": "Update Account By ID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -195,6 +199,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "Update Password By ID",
+                "operationId": "Update Password By ID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -242,6 +247,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "GetUser",
+                "operationId": "GetUser",
                 "parameters": [
                     {
                         "type": "integer",
@@ -278,6 +284,7 @@ const docTemplate = `{
                     "CRUD"
                 ],
                 "summary": "DeleteUserByID",
+                "operationId": "DeleteUserByID",
                 "parameters": [
                     {
                         "type": "integer",
@@ -304,7 +311,12 @@ const docTemplate = `{
             }
         },
         "/Test": {
-            "get": {
+            "post": {
+                "security": [
+                    {
+                        "BearerOAuth2": []
+                    }
+                ],
                 "description": "測試在 GCP Cloud Run 是否連得上不帶 pSQL 的映像檔",
                 "consumes": [
                     "application/json"
@@ -316,6 +328,7 @@ const docTemplate = `{
                     "Test Connect"
                 ],
                 "summary": "Test Connect Cloud Run",
+                "operationId": "Test Connect Cloud Run",
                 "responses": {
                     "200": {
                         "description": "Connect Cloud Run Successful",
@@ -357,6 +370,16 @@ const docTemplate = `{
                     "description": "更新密碼",
                     "type": "string"
                 }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "BearerOAuth2": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "authorizationUrl": "",
+            "scopes": {
+                "read": " Grants read access"
             }
         }
     }

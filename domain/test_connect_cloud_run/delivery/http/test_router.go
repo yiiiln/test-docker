@@ -8,7 +8,7 @@ import (
 func registerCRUDRoutes(router *gin.Engine) {
 	route := "Test"
 	routes := router.Group(route)
-	routes.GET("/", TestConnect)
+	routes.POST("/", TestConnect)
 }
 func Injection(_ *gorm.DB, router *gin.Engine) {
 	registerCRUDRoutes(router)

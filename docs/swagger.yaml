@@ -32,6 +32,7 @@ paths:
       consumes:
       - application/json
       description: 列出所有
+      operationId: GetAllUser
       produces:
       - application/json
       responses:
@@ -50,6 +51,7 @@ paths:
       consumes:
       - application/json
       description: 註冊
+      operationId: Register
       parameters:
       - description: Register account
         in: body
@@ -80,6 +82,7 @@ paths:
       consumes:
       - application/json
       description: 刪除使用者
+      operationId: DeleteUserByID
       parameters:
       - description: Delete Account ID
         in: path
@@ -104,6 +107,7 @@ paths:
       consumes:
       - application/json
       description: 列出欲查詢的使用者
+      operationId: GetUser
       parameters:
       - description: Account ID
         in: path
@@ -129,6 +133,7 @@ paths:
       consumes:
       - application/json
       description: 登入
+      operationId: Login
       parameters:
       - description: Login account
         in: body
@@ -159,6 +164,7 @@ paths:
       consumes:
       - application/json
       description: 更新使用者 Account
+      operationId: Update Account By ID
       parameters:
       - description: Account ID
         in: path
@@ -190,6 +196,7 @@ paths:
       consumes:
       - application/json
       description: 更新使用者 Password
+      operationId: Update Password By ID
       parameters:
       - description: Password ID
         in: path
@@ -217,10 +224,11 @@ paths:
       tags:
       - CRUD
   /Test:
-    get:
+    post:
       consumes:
       - application/json
       description: 測試在 GCP Cloud Run 是否連得上不帶 pSQL 的映像檔
+      operationId: Test Connect Cloud Run
       produces:
       - application/json
       responses:
@@ -228,7 +236,16 @@ paths:
           description: Connect Cloud Run Successful
           schema:
             type: string
+      security:
+      - BearerOAuth2: []
       summary: Test Connect Cloud Run
       tags:
       - Test Connect
+securityDefinitions:
+  BearerOAuth2:
+    authorizationUrl: ""
+    flow: implicit
+    scopes:
+      read: ' Grants read access'
+    type: oauth2
 swagger: "2.0"

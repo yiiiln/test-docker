@@ -19,6 +19,7 @@ func NewUserHandler(usecase model.UserUsecase) *Handler {
 // Register godoc
 //
 //	@Summary		Register
+//	@ID 			Register
 //	@Description	註冊
 //	@Tags			CRUD
 //	@Accept			json
@@ -45,6 +46,7 @@ func (h *Handler) Register(ctx *gin.Context) {
 // Login godoc
 //
 //	@Summary		Login
+//	@ID 			Login
 //	@Description	登入
 //	@Tags			CRUD
 //	@Accept			json
@@ -75,6 +77,7 @@ func (h *Handler) Login(ctx *gin.Context) {
 // GetUser godoc
 //
 //	@Summary		GetUser
+//	@ID 			GetUser
 //	@Description	列出欲查詢的使用者
 //	@Tags			CRUD
 //	@Accept			json
@@ -97,6 +100,7 @@ func (h *Handler) GetUser(ctx *gin.Context) {
 // GetAllUser godoc
 //
 //	@Summary		GetAllUser
+//	@ID 			GetAllUser
 //	@Description	列出所有
 //	@Tags			CRUD
 //	@Accept			json
@@ -149,6 +153,7 @@ func LoadResponseFromUser(user model.User) UserResponse {
 // UpdateAccountByID godoc
 //
 //	@Summary		Update Account By ID
+//	@ID 			Update Account By ID
 //	@Description	更新使用者 Account
 //	@Tags			CRUD
 //	@Accept			json
@@ -202,6 +207,7 @@ func LoadUpdateAccountResponseFromUser(user model.User) UserUpdateAccountRespons
 // UpdatePasswordByID godoc
 //
 //	@Summary		Update Password By ID
+//	@ID 			Update Password By ID
 //	@Description	更新使用者 Password
 //	@Tags			CRUD
 //	@Accept			json
@@ -255,6 +261,7 @@ func LoadUpdatePasswordResponseFromUser(user model.User) UserUpdatePasswordRespo
 // DeleteUserByID godoc
 //
 //	@Summary		DeleteUserByID
+//	@ID 			DeleteUserByID
 //	@Description	刪除使用者
 //	@Tags			CRUD
 //	@Accept			json

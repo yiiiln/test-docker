@@ -143,7 +143,7 @@
           "CRUD"
         ],
         "summary": "Update Account By ID",
-        "operationId": "UpdateAccountByID",
+        "operationId": "Update Account By ID",
         "parameters": [
           {
             "type": "integer",
@@ -191,7 +191,7 @@
           "CRUD"
         ],
         "summary": "Update Password By ID",
-        "operationId": "UpdatePasswordByID",
+        "operationId": "Update Password By ID",
         "parameters": [
           {
             "type": "integer",
@@ -304,6 +304,11 @@
     },
     "/Test": {
       "get": {
+        "security": [
+          {
+            "BearerOAuth2": []
+          }
+        ],
         "description": "測試在 GCP Cloud Run 是否連得上不帶 pSQL 的映像檔",
         "consumes": [
           "application/json"
@@ -315,7 +320,7 @@
           "Test Connect"
         ],
         "summary": "Test Connect Cloud Run",
-        "operationId": "TestConnectCloudRun",
+        "operationId": "Test Connect Cloud Run",
         "responses": {
           "200": {
             "description": "Connect Cloud Run Successful",
@@ -362,5 +367,15 @@
   },
   "x-google-backend": {
     "address": "https://test-docker-b4pv32cufa-de.a.run.app"
+  },
+  "securityDefinitions": {
+    "BearerOAuth2": {
+      "authorizationUrl": "",
+      "flow": "implicit",
+      "type": "oauth2",
+      "x-google-issuer": "https://sts.windows.net/ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8/",
+      "x-google-jwks_uri": "https://login.microsoftonline.com/ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8/discovery/v2.0/keys",
+      "x-google-audiences": "2201d752-33dc-40ce-bc34-fc24aa321582"
+    }
   }
 }

@@ -13,11 +13,18 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8
+
 // @title test-connect-api
 // @description test-connect.
 // @version 1.0.0
+//
 // @host localhost:8080
 // schemes http
+// @securityDefinitions.oauth2.implicit BearerOAuth2
+// @authorizationUrl
+// @flow implicit
+// @scope.read Grants read access
 func main() {
 
 	////domain.Connect()
@@ -41,7 +48,7 @@ func main() {
 
 	router := gin.Default()
 	postgres := postgresql.InitDB()
-	postgresql.MigrateDB(postgres)
+	//postgresql.MigrateDB(postgres)
 	genDependencyInjection(postgres, router)
 
 	swaggerURL := fmt.Sprintf("http://%s:%s/swagger/doc.json", "localhost", "8080")
