@@ -223,7 +223,7 @@ paths:
       summary: Update Password By ID
       tags:
       - CRUD
-  /Test:
+  /TestConnect:
     post:
       consumes:
       - application/json
@@ -245,7 +245,5 @@ securityDefinitions:
   BearerOAuth2:
     authorizationUrl: ""
     flow: implicit
-    scopes:
-      read: ' Grants read access'
     type: oauth2
 swagger: "2.0"

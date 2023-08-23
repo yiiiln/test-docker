@@ -6,7 +6,7 @@ import (
 )
 
 func registerCRUDRoutes(router *gin.Engine) {
-	route := "Test"
+	route := "TestConnect"
 	routes := router.Group(route)
 	routes.POST("/", TestConnect)
 }

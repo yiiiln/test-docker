@@ -302,8 +302,8 @@
         }
       }
     },
-    "/Test": {
-      "get": {
+    "/TestConnect": {
+      "post": {
         "security": [
           {
             "BearerOAuth2": []
@@ -373,7 +373,7 @@
       "authorizationUrl": "",
       "flow": "implicit",
       "type": "oauth2",
-      "x-google-issuer": "https://sts.windows.net/ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8/",
+      "x-google-issuer": "https://login.microsoftonline.com/ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8/v2.0",
       "x-google-jwks_uri": "https://login.microsoftonline.com/ca869b5d-eb4b-4a11-ba8f-f8a282ca40a8/discovery/v2.0/keys",
       "x-google-audiences": "2201d752-33dc-40ce-bc34-fc24aa321582"
     }

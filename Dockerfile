@@ -1,11 +1,3 @@
-#FROM golang:latest
-#WORKDIR /app
-#COPY . ./
-#RUN go mod download
-#RUN go build -o main .
-#EXPOSE 8080
-#CMD ["./main"]
-
 ##基底image 這裡指定的是golang官方的最新image
 #FROM golang:latest
 ##指定專案資料夾 也就是整個專案的根目錄

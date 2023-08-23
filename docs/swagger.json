@@ -302,7 +302,7 @@
                 }
             }
         },
-        "/Test": {
+        "/TestConnect": {
             "post": {
                 "security": [
                     {
@@ -369,10 +369,7 @@
         "BearerOAuth2": {
             "type": "oauth2",
             "flow": "implicit",
-            "authorizationUrl": "",
-            "scopes": {
-                "read": " Grants read access"
-            }
+            "authorizationUrl": ""
         }
     }
 }

@@ -310,7 +310,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/Test": {
+        "/TestConnect": {
             "post": {
                 "security": [
                     {
@@ -377,10 +377,7 @@ const docTemplate = `{
         "BearerOAuth2": {
             "type": "oauth2",
             "flow": "implicit",
-            "authorizationUrl": "",
-            "scopes": {
-                "read": " Grants read access"
-            }
+            "authorizationUrl": ""
         }
     }
 }`
