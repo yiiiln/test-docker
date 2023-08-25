@@ -16,9 +16,12 @@ import (
 //	@Produce		application/json
 //	@Success		200	{string}	string	"Connect Cloud Run Successful"
 //	@Router			/TestConnect [post]
-func TestConnect(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"Message": "Test Connect Cloud Run",
-		"Status":  "successful",
+func TestConnect(ctx *gin.Context) {
+	ctx.JSON(http.StatusOK, gin.H{
+		"Message":  "Test Connect successful",
+		"METHOD: ": ctx.Request.Method,
+		"HOST: ":   ctx.Request.Host,
+		"HEADER: ": ctx.Request.Header,
+		"BODY: ":   ctx.Request.Body,
 	})
 }
