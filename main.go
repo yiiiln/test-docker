@@ -2,15 +2,17 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"gorm.io/gorm"
+	"log"
 	_ "main/docs"
 	user "main/domain/crud/delivery/http"
+	graph "main/domain/graphhelper/delivery/http"
 	test "main/domain/test_connect_cloud_run/delivery/http"
 	"main/helper/repository/postgresql"
-
-	"github.com/gin-gonic/gin"
 )
 
 // @title test-connect-api
@@ -44,9 +46,11 @@ func main() {
 	//
 	//server.Run(":8080") // localhost:8080
 
+	loadEnv()
+
 	router := gin.Default()
 	postgres := postgresql.InitDB()
-	postgresql.MigrateDB(postgres)
+	//postgresql.MigrateDB(postgres)
 	genDependencyInjection(postgres, router)
 
 	swaggerURL := fmt.Sprintf("http://%s:%s/swagger/doc.json", "localhost", "8080")
@@ -55,7 +59,18 @@ func main() {
 
 	router.Run(":8080")
 }
+func loadEnv() {
+	// Load .env files
+	// .env.local takes precedence (if present)
+	godotenv.Load(".env.local")
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env")
+	}
+}
+
 func genDependencyInjection(db *gorm.DB, router *gin.Engine) {
 	user.Injection(db, router)
 	test.Injection(db, router)
+	graph.Injection(nil, router)
 }
