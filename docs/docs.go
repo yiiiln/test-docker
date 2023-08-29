@@ -338,6 +338,36 @@ const docTemplate = `{
                     }
                 }
             }
+        },
+        "/login/": {
+            "post": {
+                "description": "登入",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "login To Display Access Token"
+                ],
+                "summary": "ToDisplayAccessToken",
+                "operationId": "ToDisplayAccessToken",
+                "responses": {
+                    "200": {
+                        "description": "Get Access Token Successful",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {

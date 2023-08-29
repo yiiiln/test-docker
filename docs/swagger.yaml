@@ -241,6 +241,26 @@ paths:
       summary: Test Connect Cloud Run
       tags:
       - Test Connect
+  /login/:
+    post:
+      consumes:
+      - application/json
+      description: 登入
+      operationId: ToDisplayAccessToken
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Get Access Token Successful
+          schema:
+            type: string
+        "400":
+          description: ok
+          schema:
+            type: string
+      summary: ToDisplayAccessToken
+      tags:
+      - login To Display Access Token
 securityDefinitions:
   BearerOAuth2:
     authorizationUrl: ""

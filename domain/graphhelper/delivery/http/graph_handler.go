@@ -16,6 +16,17 @@ func NewGraphHandler(usecase model.GraphUsecase) *GraphHelper {
 	}
 }
 
+// ToDisplayAccessToken godoc
+//
+//	@Summary		ToDisplayAccessToken
+//	@ID 			ToDisplayAccessToken
+//	@Description	登入
+//	@Tags			login To Display Access Token
+//	@Accept			json
+//	@Produce		json
+//	@Success		200	{string}	string	"Get Access Token Successful"
+//	@Failure		400	{string}	string	"ok"
+//	@Router			/login/ [post]
 func (g *GraphHelper) ToDisplayAccessToken(c *gin.Context) {
 	g.GraphUsecase.InitializeGraph()
 	accessToken, err := g.GraphUsecase.DisplayAccessToken()
