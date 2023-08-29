@@ -26,7 +26,7 @@ func NewGraphHandler(usecase model.GraphUsecase) *GraphHelper {
 //	@Produce		json
 //	@Success		200	{string}	string	"Get Access Token Successful"
 //	@Failure		400	{string}	string	"ok"
-//	@Router			/login/ [post]
+//	@Router			/loginAzure/ [post]
 func (g *GraphHelper) ToDisplayAccessToken(c *gin.Context) {
 	g.GraphUsecase.InitializeGraph()
 	accessToken, err := g.GraphUsecase.DisplayAccessToken()

@@ -339,7 +339,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/login/": {
+        "/loginAzure/": {
             "post": {
                 "description": "登入",
                 "consumes": [

@@ -241,7 +241,7 @@ paths:
       summary: Test Connect Cloud Run
       tags:
       - Test Connect
-  /login/:
+  /loginAzure/:
     post:
       consumes:
       - application/json

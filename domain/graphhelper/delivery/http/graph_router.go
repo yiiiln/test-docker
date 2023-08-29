@@ -8,7 +8,7 @@ import (
 )
 
 func registerGraphRoutes(router *gin.Engine, g *GraphHelper) {
-	route := "login"
+	route := "loginAzure"
 	routes := router.Group(route)
 	routes.POST("/", g.ToDisplayAccessToken)
 }
