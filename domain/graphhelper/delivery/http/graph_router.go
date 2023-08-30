@@ -10,7 +10,8 @@ import (
 func registerGraphRoutes(router *gin.Engine, g *GraphHelper) {
 	route := "loginAzure"
 	routes := router.Group(route)
-	routes.POST("/", g.ToDisplayAccessToken)
+	routes.POST("/device", g.DeviceCodeLogin)
+	routes.POST("/password", g.AccountPasswordLogin)
 }
 
 func Injection(_ *gorm.DB, router *gin.Engine) {

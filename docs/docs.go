@@ -65,7 +65,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/http.UserRequest"
+                            "$ref": "#/definitions/main_domain_crud_delivery_http.UserRequest"
                         }
                     }
                 ],
@@ -112,7 +112,7 @@ const docTemplate = `{
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/http.UserRequest"
+                            "$ref": "#/definitions/main_domain_crud_delivery_http.UserRequest"
                         }
                     }
                 ],
@@ -339,7 +339,7 @@ const docTemplate = `{
                 }
             }
         },
-        "/loginAzure/": {
+        "/loginAzure/device": {
             "post": {
                 "description": "登入",
                 "consumes": [
@@ -349,10 +349,56 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "login To Display Access Token"
+                    "Login With Device Code"
                 ],
-                "summary": "ToDisplayAccessToken",
-                "operationId": "ToDisplayAccessToken",
+                "summary": "DeviceCodeLogin",
+                "operationId": "DeviceCodeLogin",
+                "responses": {
+                    "200": {
+                        "description": "Get Access Token Successful",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/loginAzure/password": {
+            "post": {
+                "description": "使用帳號、密碼登入 Azure",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Login With Password"
+                ],
+                "summary": "AccountPasswordLogin",
+                "operationId": "AccountPasswordLogin",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "帳號",
+                        "name": "account",
+                        "in": "formData",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "密碼",
+                        "name": "password",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
                 "responses": {
                     "200": {
                         "description": "Get Access Token Successful",
@@ -371,19 +417,6 @@ const docTemplate = `{
         }
     },
     "definitions": {
-        "http.UserRequest": {
-            "type": "object",
-            "properties": {
-                "account": {
-                    "description": "帳號",
-                    "type": "string"
-                },
-                "password": {
-                    "description": "密碼",
-                    "type": "string"
-                }
-            }
-        },
         "http.UserRequestUpdateAccount": {
             "type": "object",
             "properties": {
@@ -398,6 +431,19 @@ const docTemplate = `{
             "properties": {
                 "new_password": {
                     "description": "更新密碼",
+                    "type": "string"
+                }
+            }
+        },
+        "main_domain_crud_delivery_http.UserRequest": {
+            "type": "object",
+            "properties": {
+                "account": {
+                    "description": "帳號",
+                    "type": "string"
+                },
+                "password": {
+                    "description": "密碼",
                     "type": "string"
                 }
             }
